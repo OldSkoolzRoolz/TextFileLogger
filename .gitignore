@@ -13,6 +13,16 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+## Rider vscode folders
+.vscode/
+.idea/
+.git/
+
+LICENSE
+README.md
+*.sln
+
+
 # Mono auto generated files
 mono_crash.*
 
