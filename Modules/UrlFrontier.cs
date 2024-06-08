@@ -1,9 +1,9 @@
 using System.Diagnostics;
 using System.Text;
 
-namespace console;
+namespace UrlFrontier;
 
-public class UrlFrontier
+public class UrlFrontierz
 {
     ///<summary>
     /// TODO: implement weighting mechanisms
@@ -70,7 +70,7 @@ public class UrlFrontier
 
 
 
-    public UrlFrontier()
+    public UrlFrontierz()
     {
         _urlSet = new List<PriorityUrl>();
         _urlCheckSet = new HashSet<Uri>();

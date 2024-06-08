@@ -1,11 +1,17 @@
 using System.Diagnostics.CodeAnalysis;
+
 using HtmlAgilityPack;
 
-namespace console;
+namespace UrlFrontier;
 
 internal static class Helpers
 {
     private static object _lock = new();
+
+
+
+
+
 
     public static List<string> GetDocumentLinks(HtmlDocument document)
     {
@@ -18,6 +24,8 @@ internal static class Helpers
             return new List<string>();
         return absoluteLinkElements;
     }
+
+
 
 
 
@@ -48,25 +56,20 @@ internal static class Helpers
 
         Uri baseUri = new Uri(host);
 
-     
-          var links =   Helpers.ProcessUrls(linkElements, baseUri.Host);
-          foreach (var link in links)
-          {
+
+        var links = ProcessUrls(linkElements, baseUri.Host);
+        foreach (var link in links)
+        {
             yield return link;
-          }
-        
-
-
-        
+        }
     }
 
 
 
- 
 
 
 
-  public static IEnumerable<string?> ProcessUrls(IEnumerable<string> urls, string baseHost)
+    public static IEnumerable<string?> ProcessUrls(IEnumerable<string> urls, string baseHost)
     {
         // Ensure links are unique
         var uniqueUrls = new HashSet<string?>();
@@ -88,6 +91,11 @@ internal static class Helpers
         return uniqueUrls.Where(u => u != null && new Uri(u).Host == baseHost);
     }
 
+
+
+
+
+
     private static string? GetAbsoluteUrl(string url, string baseHost)
     {
         if (Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out var uri))
@@ -98,15 +106,12 @@ internal static class Helpers
                 var baseUri = new UriBuilder("http", baseHost).Uri;
                 uri = new Uri(baseUri, uri);
             }
+
             return uri.AbsoluteUri;
         }
+
         return null;
     }
-
-
-
-
-
 
 
 
@@ -121,29 +126,8 @@ internal static class Helpers
     }
 
 
-    public static int SearchForVideoTags2(HtmlDocument document)
-    {
-        if (document == null) throw new ArgumentNullException(nameof(document));
-        List<string> videoElements = new();
 
 
-        try
-        {
-            // videoElements = ExtractSourceUrls(document).ToList();
-
-            // Add extracted links to collection so we don't duplicate
-            //  videoElements.Select(x => x).ToList().ForEach(x => _videoUrls.Add(x));
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-            return 0;
-        }
-
-        if (videoElements.Count > 0) AppendStringsToFile(videoElements, Path.Combine("ouput", "videos.txt"));
-
-        return videoElements.Count();
-    }
 
 
     public static void AppendStringsToFile(List<string> strings, string filePath)
@@ -173,6 +157,10 @@ internal static class Helpers
             Console.WriteLine(ex);
         }
     }
+
+
+
+
 
 
     public static IEnumerable<string> ExtractSourceUrls(HtmlNodeCollection nodes)
@@ -209,11 +197,9 @@ internal static class Helpers
                 {
                     foreach (var ssrc in src)
                     {
-
                         var srcatr = ssrc.Attributes["src"];
                         if (srcatr != null) yield return srcatr.Value;
                     }
-
                 }
 
 
@@ -231,6 +217,9 @@ internal static class Helpers
                     }
             }
     }
+
+
+
 
 
 
@@ -254,14 +243,11 @@ internal static class Helpers
             return string.Empty;
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
 
     public static string ExtractSourceUrl(HtmlNode video)
     {
@@ -305,5 +291,15 @@ internal static class Helpers
 
 
         return string.Empty;
+    }
+
+
+
+
+
+
+    public static void AppendStringsToFile(List<char> videoUrls, string crazyvideosTxt)
+    {
+        throw new NotImplementedException();
     }
 }

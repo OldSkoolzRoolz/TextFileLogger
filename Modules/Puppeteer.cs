@@ -5,7 +5,7 @@
 using PuppeteerSharp;
 
 
-namespace console;
+namespace UrlFrontier;
 
 
 public class PuppetMaster
@@ -14,6 +14,11 @@ public class PuppetMaster
     public static string ChromiumPath = "/home/apollo/Apps/Browser/chrome-linux64/chrome";
     public static string HeadlessChromiumPath = "/home/apollo/Apps/Browser/chrome-headless-shell-linux64/chrome";
 
+
+
+
+
+    ///
     public static async Task GetBrowser()
     {
         var downloadPath = "/home/apollo/Apps/Browser/Chromium";
@@ -30,7 +35,13 @@ public class PuppetMaster
 
 
 
-    public static async Task<IPage> InitPuppeteerAsync(string url)
+
+
+
+    /// <summary>
+    /// Initializes a new instance of the PuppetMaster class.
+    ///
+    public static async Task<IPage> InitPuppeteerAsync()
     {
         IPage? page = default;
         try
@@ -39,14 +50,22 @@ public class PuppetMaster
             var browser = await Puppeteer.LaunchAsync(new LaunchOptions
             {
                 ExecutablePath = ChromiumPath,
+                Headless = true,
+                Args = new[] { "--no-sandbox", "--disable-setuid-sandbox" },
+                Timeout = (int)TimeSpan.FromMinutes(5).TotalMilliseconds,
+                IgnoreHTTPSErrors = true,
+
             });
 
 
             Console.WriteLine("Puppeteer launched");
 
-            page = await browser.NewPageAsync();
+            page = browser.NewPageAsync().Result;
+            //page = browser.G
 
-            await page.GoToAsync(url);
+
+
+            Console.WriteLine();
             Console.WriteLine("Page loaded");
 
 

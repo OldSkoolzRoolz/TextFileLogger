@@ -4,7 +4,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Net;
 
-namespace console;
+namespace UrlFrontier;
 
 public interface IDownloader
 {
@@ -41,7 +41,7 @@ public class Downloader : IDownloader
     private static readonly HttpClient _client = new HttpClient(new HttpClientHandler
     {
         MaxConnectionsPerServer = 5,
-        AutomaticDecompression = System.Net.DecompressionMethods.All,
+        AutomaticDecompression = DecompressionMethods.All,
     });
 
 
@@ -75,7 +75,7 @@ public class Downloader : IDownloader
             foreach (var e in a.InnerExceptions)
                 Console.WriteLine(e.Message);
         }
-        System.Console.WriteLine("Finished with all downloads");
+        Console.WriteLine("Finished with all downloads");
     }
 
     
@@ -131,9 +131,9 @@ public class Downloader : IDownloader
                 
             }
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-            System.Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
 

@@ -5,20 +5,19 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>console.Program</StartupObject>
+    <StartupObject>UrlFrontier.Program</StartupObject>
     <AnalysisLevel>preview</AnalysisLevel>
     <WarningLevel>4</WarningLevel>
     <ErrorLog>compiler-diagnostics.sarif</ErrorLog>
 
-    
+
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Moq" Version="*" />
-    <PackageReference Include="mstest" Version="3.3.1" />
-    <PackageReference Include="NUnit" Version="*" />
-    <PackageReference Include="htmlagilitypack" Version="1.11.61" />
-    <PackageReference Include="puppeteersharp" Version="18.0.0" />
+    <PackageReference Include="mstest" Version="3.3.1"/>
+    <PackageReference Include="htmlagilitypack" Version="1.11.61"/>
+    <PackageReference Include="puppeteersharp" Version="18.0.0"/>
+    <PackageReference Include="selenium.webdriver" Version="4.21.0"/>
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,9 @@
 
 using PuppeteerSharp;
 
-namespace console;
+using UrlFrontier.Modules;
+
+namespace UrlFrontier;
 
 public class AppMenu
 {
@@ -16,24 +18,29 @@ public class AppMenu
             Console.WriteLine("B. Download captured video links");
             Console.WriteLine("C. Open Site using puppeteer");
             Console.WriteLine("D. Download browser");
+            Console.WriteLine("E. Scrape using HttpClient");
             Console.WriteLine();
             Console.WriteLine("X. Exit");
             Console.Write("Enter your choice: ");
-            string? input = Console.ReadLine().ToUpperInvariant();
+            string? input = Console.ReadLine()?.ToUpperInvariant();
 
             switch (input)
             {
                 case "A":
                     Console.WriteLine("Starting scraping");
-                    System.Console.WriteLine("Enter url to scrape: ");
+                    Console.WriteLine("Enter url to scrape: ");
                     string? siteurl =
-                        "https://www.drtuber.com/categories/fetish";
+                        "https://crazyporn.xxx/videos/83202/big-boobed-mom-trainee-fuck-by-long-cock/";
 
                     // = System.Console.ReadLine();
 
-                    Scraper scrap = new();
-                    scrap.ScrapeSite(siteurl);
-                    scrap.Dispose();
+                    MultiThreadedUrlFrontier multiThreadedFrontier = new MultiThreadedUrlFrontier(siteurl, 5);
+
+                    CancellationTokenSource cts = new CancellationTokenSource();
+                    await multiThreadedFrontier.Start(cts.Token);
+
+
+
                     break;
                 case "B":
                     Console.WriteLine("Viewing queue");
@@ -41,33 +48,42 @@ public class AppMenu
 
                 case "C":
                     Console.WriteLine("Loading puppet master");
-                    System.Console.WriteLine("Enter url to scrape: ");
+                    Console.WriteLine("Enter url to scrape: ");
                     //var site1 = Console.ReadLine();
                     var site1 = "https://crazyporn.xxx/videos/83202/big-boobed-mom-trainee-fuck-by-long-cock/";
                     if (!string.IsNullOrEmpty(site1))
                     {
                         using var scrape = new Scraper();
 
-                        await scrape.ReadPageAsync(site1);
+                        await scrape.ScrapeFrontierwithPuppeteer(site1);
 
-                        System.Console.WriteLine("Scrape complete.. Press any key to Continue...");
+                        Console.WriteLine("Scrape complete.. Press any key to Continue...");
                         Console.ReadKey();
-                        scrape.Dispose();
                     }
 
                     break;
                 case "D":
                     await PuppetMaster.GetBrowser();
 
-                    System.Console.WriteLine("Download complete.. Press any key to Continue...");
+                    Console.WriteLine("Download complete.. Press any key to Continue...");
                     Console.ReadKey();
+                    break;
+                case "E":
+
+                    Console.WriteLine("Starting Http scraping");
+
+                    var site2 = "https://crazyporn.xxx/videos/83202/big-boobed-mom-trainee-fuck-by-long-cock/";
+                    var scraper = new Scraper();
+                    await scraper.ScrapeUsingSeleniumAsync(site2);
+
+                    scraper.Dispose();
                     break;
                 case "X":
                     running = false;
                     break;
                 default:
                     Console.WriteLine("Invalid option, please try again");
-                    System.Console.WriteLine("Download complete.. Press any key to Continue...");
+                    Console.WriteLine("Download complete.. Press any key to Continue...");
                     Console.ReadKey();
                     break;
             }
