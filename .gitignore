@@ -13,6 +13,9 @@
 *.userosscache
 *.sln.docstates
 
+settings.json
+run.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -485,3 +488,6 @@ $RECYCLE.BIN/
 compiler-diagnostics.sarif
 UrlFrontierQueue.bak
 UrlFrontierQueue.bak2
+.fleet/run.json
+.fleet/settings.json
+.fleet/
