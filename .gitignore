@@ -14,9 +14,7 @@
 *.userprefs
 
 ## Rider vscode folders
-.vscode/
-.idea/
-.git/
+
 
 LICENSE
 README.md

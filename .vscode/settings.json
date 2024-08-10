@@ -1,9 +1,0 @@
-{
-    "editor.formatOnType": true,
-    "terminal.integrated.tabs.enabled": false,
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "git.autoRepositoryDetection": true
-    
-    
-}
