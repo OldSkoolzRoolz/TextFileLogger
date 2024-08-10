@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 
-namespace KC.Apps.Logging;
+namespace KC.Dropins.TextFileLogger;
 
 
 

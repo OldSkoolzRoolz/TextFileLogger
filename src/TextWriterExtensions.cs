@@ -1,4 +1,9 @@
-﻿namespace KC.Apps.Logging;
+﻿
+
+
+
+
+namespace KC.Dropins.TextFileLogger;
 
 
 

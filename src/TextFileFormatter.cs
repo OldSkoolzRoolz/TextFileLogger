@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Logging.Console;
 
 
-namespace KC.Apps.Logging;
+namespace KC.Dropins.TextFileLogger;
 
 
 

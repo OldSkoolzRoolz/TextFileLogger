@@ -3,12 +3,11 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Configuration;
 
-
-namespace KC.Apps.Logging;
-
+namespace KC.Dropins.TextFileLogger;
 
 
-internal static class BuilderExtensions
+
+public static class BuilderExtensions
 {
     public static ILoggingBuilder AddTextFileLogger(
         this ILoggingBuilder builder)

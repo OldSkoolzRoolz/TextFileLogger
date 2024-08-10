@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 
-namespace KC.Apps.Logging;
+namespace KC.Dropins.TextFileLogger;
 
 
 
@@ -13,8 +13,8 @@ public class TextFileLoggerConfiguration
 
     public LogRotationPolicy LogRotationPolicy { get; set; }
     public string? TimestampFormat { get; set; }
-    internal string? EntryPrefix { get; set; }
-    internal string? EntrySuffix { get; set; }
+    public string? EntryPrefix { get; set; }
+    public string? EntrySuffix { get; set; }
     public bool IncludeScopes { get; set; }
 }
 
