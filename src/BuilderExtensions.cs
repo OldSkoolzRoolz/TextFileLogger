@@ -33,5 +33,5 @@ public static class BuilderExtensions
             builder.AddTextFileLogger();
             builder.Services.Configure(configure);
             return builder;
-        }
-}
+        }      
+    }
