@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Library</OutputType>
@@ -14,19 +14,39 @@
         <Copyright>Open Source</Copyright>
 
         <PackageProjectUrl>https://github.com/oldskoolzroolz/TextFileLogger</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/oldskoolzroolz/TextFileLogger/LICENSE</PackageLicenseUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Company>Kyle Crowder</Company>
         <Product>TextFileLogger</Product>
-        <AssemblyVersion>1.20.12</AssemblyVersion>
-        <FileVersion>2.00.00</FileVersion>
-        <Version>1.00.3</Version>
+        <AssemblyVersion>1.0.5</AssemblyVersion>
+        <FileVersion>1.00.00</FileVersion>
+        <Version>1.0.3</Version>
+        <Readme>README.txt</Readme>
+		<PackageIcon>KCico28px.png</PackageIcon>
         <NeutralLanguage>en-US</NeutralLanguage>
     </PropertyGroup>
 
     <PropertyGroup>
         <RepositoryUrl>https://github.com/OldSkoolzRoolz/TextFileLogger</RepositoryUrl>
-        <RepositoryType>github</RepositoryType>
+        <RepositoryType>git</RepositoryType>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="KCico28px.png" />
+      <None Remove="README.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="KCico28px.png">
+        <PackagePath>\</PackagePath>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="README.md">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    
+    </ItemGroup>
 
     <ItemGroup>
         <None Update="appsettings.json">
@@ -35,9 +55,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="8.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.7" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="9.0.7" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.7" />
     </ItemGroup>
 
 
