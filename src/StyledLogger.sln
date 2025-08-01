@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36327.8 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyledLogger", "StyledLogger.csproj", "{EA0D9E2F-01F4-E87F-488C-0524A7E2DE48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleStyledLogger", "..\Sample\StyledLogger\SampleStyledLogger.csproj", "{FEB2AAE8-1CDF-698B-221A-A56047A96980}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EA0D9E2F-01F4-E87F-488C-0524A7E2DE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA0D9E2F-01F4-E87F-488C-0524A7E2DE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA0D9E2F-01F4-E87F-488C-0524A7E2DE48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB2AAE8-1CDF-698B-221A-A56047A96980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEB2AAE8-1CDF-698B-221A-A56047A96980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEB2AAE8-1CDF-698B-221A-A56047A96980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEB2AAE8-1CDF-698B-221A-A56047A96980}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

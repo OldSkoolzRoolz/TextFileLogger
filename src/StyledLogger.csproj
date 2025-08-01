@@ -43,7 +43,8 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="README.md">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <PackagePath>\</PackagePath>
+	      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
     
     </ItemGroup>
